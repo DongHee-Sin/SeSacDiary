@@ -15,7 +15,9 @@ class DiaryView: BaseView {
     let selectedImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .black
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderWidth = 1
         return view
     }()
     

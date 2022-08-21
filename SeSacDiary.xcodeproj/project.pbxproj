@@ -29,6 +29,7 @@
 		D07B5FCC28B1360800385F6A /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B5FCB28B1360800385F6A /* APIKeys.swift */; };
 		D07B5FCF28B138A600385F6A /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B5FCE28B138A600385F6A /* DiaryView.swift */; };
 		D07B5FD228B1400100385F6A /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = D07B5FD128B1400100385F6A /* TextFieldEffects */; };
+		D0AD3C6928B27239000C6987 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D0AD3C6828B27239000C6987 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 				D07B5FC528B1351300385F6A /* SwiftyJSON in Frameworks */,
 				D07B5FBC28B134E300385F6A /* SnapKit in Frameworks */,
 				D07B5FD228B1400100385F6A /* TextFieldEffects in Frameworks */,
+				D0AD3C6928B27239000C6987 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,9 +134,9 @@
 		D07B5F9B28B1296000385F6A /* SeSacDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D07B5FB028B1296C00385F6A /* App */,
 				D0129F2828B21860004204F1 /* Extension */,
 				D07B5FB528B1300200385F6A /* Utility */,
-				D07B5FB028B1296C00385F6A /* App */,
 				D07B5FB128B12BEC00385F6A /* ViewControllers */,
 				D0129F2B28B21C1A004204F1 /* Manager */,
 				D07B5FA528B1296100385F6A /* Assets.xcassets */,
@@ -204,6 +206,7 @@
 				D07B5FC128B1350700385F6A /* Alamofire */,
 				D07B5FC428B1351300385F6A /* SwiftyJSON */,
 				D07B5FD128B1400100385F6A /* TextFieldEffects */,
+				D0AD3C6828B27239000C6987 /* IQKeyboardManagerSwift */,
 			);
 			productName = SeSacDiary;
 			productReference = D07B5F9928B1296000385F6A /* SeSacDiary.app */;
@@ -239,6 +242,7 @@
 				D07B5FC028B1350700385F6A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D07B5FC328B1351300385F6A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				D07B5FD028B1400100385F6A /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+				D0AD3C6728B27239000C6987 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = D07B5F9A28B1296000385F6A /* Products */;
 			projectDirPath = "";
@@ -532,6 +536,14 @@
 				kind = branch;
 			};
 		};
+		D0AD3C6728B27239000C6987 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -559,6 +571,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D07B5FD028B1400100385F6A /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
 			productName = TextFieldEffects;
+		};
+		D0AD3C6828B27239000C6987 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0AD3C6728B27239000C6987 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

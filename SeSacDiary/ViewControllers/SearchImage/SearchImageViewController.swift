@@ -45,6 +45,8 @@ class SearchImageViewController: BaseViewController {
         searchImageView.imageCollectionView.delegate = self
         searchImageView.imageCollectionView.dataSource = self
         searchImageView.imageCollectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
+        
+        searchImageView.imageCollectionView.keyboardDismissMode = .onDrag
     }
     
     
@@ -102,8 +104,8 @@ extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewD
         let previouslySelected = selectedIndexPath
         selectedIndexPath = indexPath
         
-        if let temp = previouslySelected {
-            searchImageView.imageCollectionView.reloadItems(at: [indexPath, temp])
+        if let previouslySelected = previouslySelected {
+            searchImageView.imageCollectionView.reloadItems(at: [indexPath, previouslySelected])
         }else {
             searchImageView.imageCollectionView.reloadItems(at: [indexPath])
         }

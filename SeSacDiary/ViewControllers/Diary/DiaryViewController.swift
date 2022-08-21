@@ -28,6 +28,8 @@ class DiaryViewController: BaseViewController {
     // MARK: - Methdos
     override func configure() {
         diaryView.searchImageButton.addTarget(self, action: #selector(selectImageButtonTapped), for: .touchUpInside)
+        
+        setDismissKeyboard()
     }
     
     
@@ -40,6 +42,15 @@ class DiaryViewController: BaseViewController {
         let vc = SearchImageViewController()
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    private func setDismissKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        self.view.endEditing(false)
     }
 }
 

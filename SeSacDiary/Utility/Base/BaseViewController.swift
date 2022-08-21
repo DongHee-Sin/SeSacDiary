@@ -14,8 +14,6 @@ class BaseViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        //setDismissKeyboard()
-        
         setNavigationBar()
         
         configure()
@@ -32,14 +30,5 @@ class BaseViewController: UIViewController {
         let ok = UIAlertAction(title: button, style: .default)
         alert.addAction(ok)
         present(alert, animated: true)
-    }
-    
-    
-    private func setDismissKeyboard() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        self.view.addGestureRecognizer(tap)
-    }
-    @objc func dismissKeyboard() {
-        self.view.endEditing(false)
     }
 }
