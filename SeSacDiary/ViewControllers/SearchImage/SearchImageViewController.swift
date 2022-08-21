@@ -7,12 +7,22 @@
 
 import UIKit
 
+
+
+protocol RegisterImageDelegate {
+    func registerImage(urlString: String)
+}
+
+
+
 class SearchImageViewController: BaseViewController {
 
     // MARK: - Propertys
     var imageURLList: [String] = []
     
     var selectedIndexPath: IndexPath?
+    
+    var delegate: RegisterImageDelegate?
     
     
     
@@ -58,7 +68,12 @@ class SearchImageViewController: BaseViewController {
     
     
     @objc func selectImageButtonTapped() {
-        print("선택")
+        if let selectedIndexPath = selectedIndexPath {
+            delegate?.registerImage(urlString: imageURLList[selectedIndexPath.item])
+            navigationController?.popViewController(animated: true)
+        }else {
+            showAlertMessage(title: "선택된 이미지가 없습니다.", button: "확인")
+        }
     }
 }
 

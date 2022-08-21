@@ -17,7 +17,8 @@ class ImageCollectionViewCell: UICollectionViewCell {
     // MARK: - Property
     let searchResultImageView: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         view.image = UIImage(systemName: "star")
         return view
     }()

@@ -27,6 +27,14 @@ class BaseViewController: UIViewController {
     func setNavigationBar() {}
     
     
+    func showAlertMessage(title: String, button: String) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: button, style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
+    
+    
     private func setDismissKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)

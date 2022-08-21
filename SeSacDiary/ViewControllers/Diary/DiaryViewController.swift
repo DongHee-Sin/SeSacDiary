@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Kingfisher
+
 class DiaryViewController: BaseViewController {
 
     let diaryView = DiaryView()
@@ -36,6 +38,16 @@ class DiaryViewController: BaseViewController {
     
     @objc func selectImageButtonTapped() {
         let vc = SearchImageViewController()
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
+
+extension DiaryViewController: RegisterImageDelegate {
+    func registerImage(urlString: String) {
+        let url = URL(string: urlString)
+        diaryView.selectedImageView.kf.setImage(with: url)
     }
 }
