@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0129F2128B1FBC8004204F1 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2028B1FBC8004204F1 /* MainTextField.swift */; };
+		D0129F2428B20039004204F1 /* SearchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2328B20039004204F1 /* SearchImageViewController.swift */; };
+		D0129F2628B20046004204F1 /* SearchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2528B20046004204F1 /* SearchImageView.swift */; };
+		D0129F2A28B2186B004204F1 /* UICollectionViewLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2928B2186B004204F1 /* UICollectionViewLayout+Extension.swift */; };
 		D07B5F9D28B1296000385F6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B5F9C28B1296000385F6A /* AppDelegate.swift */; };
 		D07B5F9F28B1296000385F6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B5F9E28B1296000385F6A /* SceneDelegate.swift */; };
 		D07B5FA628B1296100385F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07B5FA528B1296100385F6A /* Assets.xcassets */; };
@@ -20,9 +24,15 @@
 		D07B5FC528B1351300385F6A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = D07B5FC428B1351300385F6A /* SwiftyJSON */; };
 		D07B5FCA28B135C800385F6A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D07B5FC928B135C800385F6A /* .gitignore */; };
 		D07B5FCC28B1360800385F6A /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B5FCB28B1360800385F6A /* APIKeys.swift */; };
+		D07B5FCF28B138A600385F6A /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B5FCE28B138A600385F6A /* DiaryView.swift */; };
+		D07B5FD228B1400100385F6A /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = D07B5FD128B1400100385F6A /* TextFieldEffects */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D0129F2028B1FBC8004204F1 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
+		D0129F2328B20039004204F1 /* SearchImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageViewController.swift; sourceTree = "<group>"; };
+		D0129F2528B20046004204F1 /* SearchImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageView.swift; sourceTree = "<group>"; };
+		D0129F2928B2186B004204F1 /* UICollectionViewLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extension.swift"; sourceTree = "<group>"; };
 		D07B5F9928B1296000385F6A /* SeSacDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07B5F9C28B1296000385F6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D07B5F9E28B1296000385F6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +44,7 @@
 		D07B5FB828B131BD00385F6A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		D07B5FC928B135C800385F6A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D07B5FCB28B1360800385F6A /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		D07B5FCE28B138A600385F6A /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,12 +56,47 @@
 				D07B5FBF28B134FC00385F6A /* Kingfisher in Frameworks */,
 				D07B5FC528B1351300385F6A /* SwiftyJSON in Frameworks */,
 				D07B5FBC28B134E300385F6A /* SnapKit in Frameworks */,
+				D07B5FD228B1400100385F6A /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0129F1E28B1FBAA004204F1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D07B5FB628B1302B00385F6A /* BaseViewController.swift */,
+				D07B5FB828B131BD00385F6A /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D0129F1F28B1FBB2004204F1 /* CustomClass */ = {
+			isa = PBXGroup;
+			children = (
+				D0129F2028B1FBC8004204F1 /* MainTextField.swift */,
+			);
+			path = CustomClass;
+			sourceTree = "<group>";
+		};
+		D0129F2228B20014004204F1 /* SearchImage */ = {
+			isa = PBXGroup;
+			children = (
+				D0129F2328B20039004204F1 /* SearchImageViewController.swift */,
+				D0129F2528B20046004204F1 /* SearchImageView.swift */,
+			);
+			path = SearchImage;
+			sourceTree = "<group>";
+		};
+		D0129F2828B21860004204F1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D0129F2928B2186B004204F1 /* UICollectionViewLayout+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		D07B5F9028B1296000385F6A = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +117,7 @@
 		D07B5F9B28B1296000385F6A /* SeSacDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D0129F2828B21860004204F1 /* Extension */,
 				D07B5FB528B1300200385F6A /* Utility */,
 				D07B5FB028B1296C00385F6A /* App */,
 				D07B5FB128B12BEC00385F6A /* ViewControllers */,
@@ -94,7 +141,8 @@
 		D07B5FB128B12BEC00385F6A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D07B5FB228B12F5D00385F6A /* DiaryViewController.swift */,
+				D07B5FCD28B1389D00385F6A /* Diary */,
+				D0129F2228B20014004204F1 /* SearchImage */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -102,10 +150,19 @@
 		D07B5FB528B1300200385F6A /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				D07B5FB628B1302B00385F6A /* BaseViewController.swift */,
-				D07B5FB828B131BD00385F6A /* BaseView.swift */,
+				D0129F1E28B1FBAA004204F1 /* Base */,
+				D0129F1F28B1FBB2004204F1 /* CustomClass */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		D07B5FCD28B1389D00385F6A /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				D07B5FB228B12F5D00385F6A /* DiaryViewController.swift */,
+				D07B5FCE28B138A600385F6A /* DiaryView.swift */,
+			);
+			path = Diary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +186,7 @@
 				D07B5FBE28B134FC00385F6A /* Kingfisher */,
 				D07B5FC128B1350700385F6A /* Alamofire */,
 				D07B5FC428B1351300385F6A /* SwiftyJSON */,
+				D07B5FD128B1400100385F6A /* TextFieldEffects */,
 			);
 			productName = SeSacDiary;
 			productReference = D07B5F9928B1296000385F6A /* SeSacDiary.app */;
@@ -163,6 +221,7 @@
 				D07B5FBD28B134FC00385F6A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				D07B5FC028B1350700385F6A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D07B5FC328B1351300385F6A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				D07B5FD028B1400100385F6A /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = D07B5F9A28B1296000385F6A /* Products */;
 			projectDirPath = "";
@@ -192,9 +251,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D07B5FCC28B1360800385F6A /* APIKeys.swift in Sources */,
+				D0129F2A28B2186B004204F1 /* UICollectionViewLayout+Extension.swift in Sources */,
+				D0129F2428B20039004204F1 /* SearchImageViewController.swift in Sources */,
 				D07B5F9D28B1296000385F6A /* AppDelegate.swift in Sources */,
 				D07B5FB728B1302B00385F6A /* BaseViewController.swift in Sources */,
+				D07B5FCF28B138A600385F6A /* DiaryView.swift in Sources */,
+				D0129F2128B1FBC8004204F1 /* MainTextField.swift in Sources */,
 				D07B5FB928B131BD00385F6A /* BaseView.swift in Sources */,
+				D0129F2628B20046004204F1 /* SearchImageView.swift in Sources */,
 				D07B5FB328B12F5D00385F6A /* DiaryViewController.swift in Sources */,
 				D07B5F9F28B1296000385F6A /* SceneDelegate.swift in Sources */,
 			);
@@ -340,7 +404,6 @@
 				INFOPLIST_FILE = SeSacDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -369,7 +432,6 @@
 				INFOPLIST_FILE = SeSacDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -442,6 +504,14 @@
 				kind = branch;
 			};
 		};
+		D07B5FD028B1400100385F6A /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -464,6 +534,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D07B5FC328B1351300385F6A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		D07B5FD128B1400100385F6A /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D07B5FD028B1400100385F6A /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
