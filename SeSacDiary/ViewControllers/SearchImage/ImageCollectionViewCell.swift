@@ -22,6 +22,14 @@ class ImageCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
+    let borderView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .clear
+        view.layer.borderWidth = 3
+        view.layer.borderColor = UIColor.red.cgColor
+        return view
+    }()
+    
     
     
     // MARK: - Init
@@ -40,7 +48,9 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Methods
     func configureUI() {
-        self.addSubview(searchResultImageView)
+        [searchResultImageView, borderView].forEach {
+            self.addSubview($0)
+        }
     }
     
     
@@ -48,11 +58,17 @@ class ImageCollectionViewCell: UICollectionViewCell {
         searchResultImageView.snp.makeConstraints { make in
             make.edges.equalTo(self).inset(0)
         }
+        
+        borderView.snp.makeConstraints { make in
+            make.edges.equalTo(searchResultImageView).inset(0)
+        }
     }
     
     
-    func updateCell(imageURL: String) {
+    func updateCell(imageURL: String, isSelectedItem: Bool) {
         let url = URL(string: imageURL)
         searchResultImageView.kf.setImage(with: url)
+        
+        borderView.isHidden = !isSelectedItem
     }
 }

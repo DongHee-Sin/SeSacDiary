@@ -12,6 +12,8 @@ class SearchImageViewController: BaseViewController {
     // MARK: - Propertys
     var imageURLList: [String] = []
     
+    var selectedIndexPath: IndexPath?
+    
     
     
     // MARK: - LoadView & ViewDidLoad
@@ -75,9 +77,21 @@ extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewD
             return UICollectionViewCell()
         }
         
-        cell.updateCell(imageURL: imageURLList[indexPath.item])
+        cell.updateCell(imageURL: imageURLList[indexPath.item], isSelectedItem: selectedIndexPath == indexPath)
         
         return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let previouslySelected = selectedIndexPath
+        selectedIndexPath = indexPath
+        
+        if let temp = previouslySelected {
+            searchImageView.imageCollectionView.reloadItems(at: [indexPath, temp])
+        }else {
+            searchImageView.imageCollectionView.reloadItems(at: [indexPath])
+        }
     }
 }
 
@@ -87,6 +101,8 @@ extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewD
 // MARK: - SearchBar Protocol
 extension SearchImageViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        selectedIndexPath = nil
         imageURLList.removeAll()
         
         guard let query = searchBar.text else { return }

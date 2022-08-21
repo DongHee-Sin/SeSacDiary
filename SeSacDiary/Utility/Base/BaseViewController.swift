@@ -14,7 +14,7 @@ class BaseViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        setDismissKeyboard()
+        //setDismissKeyboard()
         
         setNavigationBar()
         
