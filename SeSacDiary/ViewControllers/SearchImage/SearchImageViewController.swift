@@ -9,6 +9,12 @@ import UIKit
 
 class SearchImageViewController: BaseViewController {
 
+    // MARK: - Propertys
+    var imageURLList: [String] = []
+    
+    
+    
+    // MARK: - LoadView & ViewDidLoad
     let searchImageView = SearchImageView()
     
     override func loadView() {
@@ -42,7 +48,8 @@ class SearchImageViewController: BaseViewController {
     
     func setSearchController() {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.navigationItem.searchController = searchController
     }
@@ -59,7 +66,7 @@ class SearchImageViewController: BaseViewController {
 // MARK: - CollectionView Protocol
 extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return imageURLList.count
     }
     
     
@@ -68,6 +75,8 @@ extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewD
             return UICollectionViewCell()
         }
         
+        cell.updateCell(imageURL: imageURLList[indexPath.item])
+        
         return cell
     }
 }
@@ -75,9 +84,22 @@ extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewD
 
 
 
-// MARK: - SearchController Protocol
-extension SearchImageViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        print("\(searchController.searchBar.text ?? "")")
+// MARK: - SearchBar Protocol
+extension SearchImageViewController: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        imageURLList.removeAll()
+        
+        guard let query = searchBar.text else { return }
+        
+        APIManager.shared.requestAPI(query: query) { [weak self] json in
+            guard let self = self else { return }
+            
+            json["results"].arrayValue.forEach { json in
+                let url = json["urls"]["small"].stringValue
+                self.imageURLList.append(url)
+            }
+            
+            self.searchImageView.imageCollectionView.reloadData()
+        }
     }
 }

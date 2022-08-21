@@ -6,7 +6,9 @@
 //
 
 import UIKit
+
 import SnapKit
+import Kingfisher
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
@@ -41,11 +43,16 @@ class ImageCollectionViewCell: UICollectionViewCell {
         self.addSubview(searchResultImageView)
     }
     
+    
     func setConstraints() {
-        
         searchResultImageView.snp.makeConstraints { make in
             make.edges.equalTo(self).inset(0)
         }
-        
+    }
+    
+    
+    func updateCell(imageURL: String) {
+        let url = URL(string: imageURL)
+        searchResultImageView.kf.setImage(with: url)
     }
 }
