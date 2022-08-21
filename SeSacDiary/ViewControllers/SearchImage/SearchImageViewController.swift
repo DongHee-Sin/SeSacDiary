@@ -23,7 +23,11 @@ class SearchImageViewController: BaseViewController {
     
     
     // MARK: - Methods
-    override func configure() { }
+    override func configure() {
+        searchImageView.imageCollectionView.delegate = self
+        searchImageView.imageCollectionView.dataSource = self
+        searchImageView.imageCollectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
+    }
     
     
     override func setNavigationBar() {
@@ -48,6 +52,26 @@ class SearchImageViewController: BaseViewController {
         print("선택")
     }
 }
+
+
+
+
+// MARK: - CollectionView Protocol
+extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        return cell
+    }
+}
+
 
 
 

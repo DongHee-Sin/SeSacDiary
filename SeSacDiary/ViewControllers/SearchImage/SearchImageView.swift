@@ -12,7 +12,6 @@ class SearchImageView: BaseView {
     // MARK: - Propertys
     let imageCollectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: .imageCollectionViewLayout)
-        view.backgroundColor = .lightGray
         return view
     }()
     

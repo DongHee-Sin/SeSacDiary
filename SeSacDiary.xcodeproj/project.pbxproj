@@ -11,6 +11,7 @@
 		D0129F2428B20039004204F1 /* SearchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2328B20039004204F1 /* SearchImageViewController.swift */; };
 		D0129F2628B20046004204F1 /* SearchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2528B20046004204F1 /* SearchImageView.swift */; };
 		D0129F2A28B2186B004204F1 /* UICollectionViewLayout+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2928B2186B004204F1 /* UICollectionViewLayout+Extension.swift */; };
+		D0129F2D28B21C6D004204F1 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2C28B21C6D004204F1 /* ImageCollectionViewCell.swift */; };
 		D07B5F9D28B1296000385F6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B5F9C28B1296000385F6A /* AppDelegate.swift */; };
 		D07B5F9F28B1296000385F6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B5F9E28B1296000385F6A /* SceneDelegate.swift */; };
 		D07B5FA628B1296100385F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07B5FA528B1296100385F6A /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		D0129F2328B20039004204F1 /* SearchImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageViewController.swift; sourceTree = "<group>"; };
 		D0129F2528B20046004204F1 /* SearchImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageView.swift; sourceTree = "<group>"; };
 		D0129F2928B2186B004204F1 /* UICollectionViewLayout+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extension.swift"; sourceTree = "<group>"; };
+		D0129F2C28B21C6D004204F1 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D07B5F9928B1296000385F6A /* SeSacDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07B5F9C28B1296000385F6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D07B5F9E28B1296000385F6A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				D0129F2328B20039004204F1 /* SearchImageViewController.swift */,
 				D0129F2528B20046004204F1 /* SearchImageView.swift */,
+				D0129F2C28B21C6D004204F1 /* ImageCollectionViewCell.swift */,
 			);
 			path = SearchImage;
 			sourceTree = "<group>";
@@ -95,6 +98,13 @@
 				D0129F2928B2186B004204F1 /* UICollectionViewLayout+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D0129F2B28B21C1A004204F1 /* Model-Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model-Manager";
 			sourceTree = "<group>";
 		};
 		D07B5F9028B1296000385F6A = {
@@ -121,6 +131,7 @@
 				D07B5FB528B1300200385F6A /* Utility */,
 				D07B5FB028B1296C00385F6A /* App */,
 				D07B5FB128B12BEC00385F6A /* ViewControllers */,
+				D0129F2B28B21C1A004204F1 /* Model-Manager */,
 				D07B5FA528B1296100385F6A /* Assets.xcassets */,
 				D07B5FA728B1296100385F6A /* LaunchScreen.storyboard */,
 				D07B5FAA28B1296100385F6A /* Info.plist */,
@@ -256,6 +267,7 @@
 				D07B5F9D28B1296000385F6A /* AppDelegate.swift in Sources */,
 				D07B5FB728B1302B00385F6A /* BaseViewController.swift in Sources */,
 				D07B5FCF28B138A600385F6A /* DiaryView.swift in Sources */,
+				D0129F2D28B21C6D004204F1 /* ImageCollectionViewCell.swift in Sources */,
 				D0129F2128B1FBC8004204F1 /* MainTextField.swift in Sources */,
 				D07B5FB928B131BD00385F6A /* BaseView.swift in Sources */,
 				D0129F2628B20046004204F1 /* SearchImageView.swift in Sources */,

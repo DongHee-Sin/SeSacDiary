@@ -15,6 +15,8 @@ extension UICollectionViewLayout {
         let width: CGFloat = UIScreen.main.bounds.width
         let itemWidth: CGFloat = width / 3
         
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         layout.scrollDirection = .vertical
         
