@@ -8,9 +8,12 @@
 import UIKit
 
 import Kingfisher
+import RealmSwift   // Realm 1.
 
 class DiaryViewController: BaseViewController {
 
+    let localRealm = try! Realm()  // Realm 2. Realm 테이블에 데이터를 CRUD할 때, Realm 테이블 경로에 접근하기 위한 코드
+    
     let diaryView = DiaryView()
     
     override func loadView() {
@@ -20,6 +23,10 @@ class DiaryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
+        
+        print("Realm is located at:", localRealm.configuration.fileURL!)
     }
     
     
@@ -30,6 +37,18 @@ class DiaryViewController: BaseViewController {
         diaryView.searchImageButton.addTarget(self, action: #selector(selectImageButtonTapped), for: .touchUpInside)
         
         setDismissKeyboard()
+        
+        diaryView.sampleButton.addTarget(self, action: #selector(sampleButtonTapped), for: .touchUpInside)
+    }
+    @objc func sampleButtonTapped() {
+        // Record를 추가하는 과정
+        let task = UserDiary(diaryTitle: "ㄱ오늘의 일기 \(Int.random(in: 1...1000))", diaryContent: "일기 내용", diaryDate: Date(), regdate: Date(), photoURL: nil)
+        
+        try! localRealm.write {
+            localRealm.add(task)  // Create
+            print("Realm Succeed")
+            dismiss(animated: true)
+        }
     }
     
     

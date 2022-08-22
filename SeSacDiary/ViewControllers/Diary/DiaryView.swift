@@ -54,11 +54,17 @@ class DiaryView: BaseView {
         return view
     }()
     
+    let sampleButton: UIButton = {
+        let view = UIButton()
+        view.backgroundColor = .green
+        return view
+    }()
+    
     
     
     // MARK: - Methods
     override func configureUI() {
-        [selectedImageView, titleTextField, dateTextField, contentTextView, searchImageButton].forEach {
+        [selectedImageView, titleTextField, dateTextField, contentTextView, searchImageButton, sampleButton].forEach {
             self.addSubview($0)
         }
     }
@@ -98,6 +104,10 @@ class DiaryView: BaseView {
             make.trailing.equalTo(selectedImageView.snp.trailing).offset(-12)
             make.bottom.equalTo(selectedImageView.snp.bottom).offset(-12)
             make.width.height.equalTo(50)
+        }
+        
+        sampleButton.snp.makeConstraints { make in
+            make.center.equalTo(self)
         }
     }
 }
