@@ -12,6 +12,8 @@ import RealmSwift   // Realm 1.
 
 class DiaryViewController: BaseViewController {
 
+    var imageURL: String?
+    
     let localRealm = try! Realm()  // Realm 2. Realm 테이블에 데이터를 CRUD할 때, Realm 테이블 경로에 접근하기 위한 코드
     
     let diaryView = DiaryView()
@@ -42,7 +44,7 @@ class DiaryViewController: BaseViewController {
     }
     @objc func sampleButtonTapped() {
         // Record를 추가하는 과정
-        let task = UserDiary(diaryTitle: "ㄱ오늘의 일기 \(Int.random(in: 1...1000))", diaryContent: "일기 내용", diaryDate: Date(), regdate: Date(), photoURL: nil)
+        let task = UserDiary(diaryTitle: diaryView.titleTextField.text!, diaryContent: diaryView.contentTextView.text!, diaryDate: Date(), regdate: Date(), photoURL: imageURL)
         
         try! localRealm.write {
             localRealm.add(task)  // Create
@@ -77,6 +79,7 @@ class DiaryViewController: BaseViewController {
 
 extension DiaryViewController: RegisterImageDelegate {
     func registerImage(urlString: String) {
+        imageURL = urlString
         let url = URL(string: urlString)
         diaryView.selectedImageView.kf.setImage(with: url)
     }

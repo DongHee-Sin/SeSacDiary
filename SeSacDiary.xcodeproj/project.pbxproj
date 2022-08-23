@@ -34,6 +34,7 @@
 		D07B5FCF28B138A600385F6A /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B5FCE28B138A600385F6A /* DiaryView.swift */; };
 		D07B5FD228B1400100385F6A /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = D07B5FD128B1400100385F6A /* TextFieldEffects */; };
 		D0AD3C6928B27239000C6987 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D0AD3C6828B27239000C6987 /* IQKeyboardManagerSwift */; };
+		D0F7105B28B4DB3F00378D15 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F7105A28B4DB3F00378D15 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		D07B5FC928B135C800385F6A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D07B5FCB28B1360800385F6A /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		D07B5FCE28B138A600385F6A /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		D0F7105A28B4DB3F00378D15 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				D014A28B28B32A9C002DCC25 /* HomeViewController.swift */,
+				D0F7105A28B4DB3F00378D15 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				D0129F2A28B2186B004204F1 /* UICollectionViewLayout+Extension.swift in Sources */,
 				D0129F2428B20039004204F1 /* SearchImageViewController.swift in Sources */,
 				D07B5F9D28B1296000385F6A /* AppDelegate.swift in Sources */,
+				D0F7105B28B4DB3F00378D15 /* HomeView.swift in Sources */,
 				D07B5FB728B1302B00385F6A /* BaseViewController.swift in Sources */,
 				D0129F3228B22A17004204F1 /* APIManager.swift in Sources */,
 				D07B5FCF28B138A600385F6A /* DiaryView.swift in Sources */,

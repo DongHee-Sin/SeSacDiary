@@ -12,14 +12,14 @@ import RealmSwift
 // UserDiary : 테이블 이름
 // Persisted : 컬럼
 class UserDiary: Object {
-    @Persisted var diaryTitle: String  // 제목(필수)
+    @Persisted var diaryTitle: String     // 제목(필수)
     @Persisted var diaryContent: String?  // 내용(옵션)
-    @Persisted var diaryDate: Date  // 작성 날짜(필수)
-    @Persisted var regdate: Date  // 등록 날짜(필수)
-    @Persisted var favorite: Bool  // 즐겨찾기(필수)
-    @Persisted var photoURL: String?  // 사진 URL String(옵션)
+    @Persisted var diaryDate: Date        // 작성 날짜(필수)
+    @Persisted var regdate: Date          // 등록 날짜(필수)
+    @Persisted var favorite: Bool         // 즐겨찾기(필수)
+    @Persisted var photoURL: String?      // 사진 URL String(옵션)
     
-    // PrimaryKey(필수) : Int, UUID, ObjectID
+    // PrimaryKey(필수) : Int, UUID, ObjectID 데이터타입을 주로 사용
     // Realm에서는 UUID, ObjectID를 권장 -> realm에서 랜덤으로 뽑아준다
     @Persisted(primaryKey: true) var objectId: ObjectId
     
