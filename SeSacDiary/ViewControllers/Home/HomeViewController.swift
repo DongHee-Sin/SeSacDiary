@@ -37,7 +37,7 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print("Realm is located at:", localRealm.configuration.fileURL!)
         fetchRealm()
     }
     
@@ -112,6 +112,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    
+    
+    
+    // 편집 가능 여부를 반환
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    // 편집 스타일 (editingStyle)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let taskToDelete = tasks[indexPath.row]
+            try! localRealm.write {
+                localRealm.delete(taskToDelete)
+                fetchRealm()
+            }
+        }
     }
     
     

@@ -39,23 +39,39 @@ class DiaryViewController: BaseViewController {
         diaryView.searchImageButton.addTarget(self, action: #selector(selectImageButtonTapped), for: .touchUpInside)
         
         setDismissKeyboard()
-        
-        diaryView.sampleButton.addTarget(self, action: #selector(sampleButtonTapped), for: .touchUpInside)
-    }
-    @objc func sampleButtonTapped() {
-        // Record를 추가하는 과정
-        let task = UserDiary(diaryTitle: diaryView.titleTextField.text!, diaryContent: diaryView.contentTextView.text!, diaryDate: Date(), regdate: Date(), photoURL: imageURL)
-        
-        try! localRealm.write {
-            localRealm.add(task)  // Create
-            print("Realm Succeed")
-            dismiss(animated: true)
-        }
     }
     
     
     override func setNavigationBar() {
         navigationItem.title = "Diary"
+        
+        let dismissButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
+        dismissButton.tintColor = .darkGray
+        navigationItem.leftBarButtonItem = dismissButton
+        
+        let saveButton = UIBarButtonItem(image: UIImage(systemName: "pencil.circle"), style: .plain, target: self, action: #selector(saveButtonTapped))
+        saveButton.tintColor = .darkGray
+        navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    
+    @objc func saveButtonTapped() {
+        // Record를 추가하는 과정
+        guard diaryView.titleTextField.text != "" else {
+            showAlertMessage(title: "제목은 필수 입력입니다.", button: "확인")
+            return
+        }
+        let task = UserDiary(diaryTitle: diaryView.titleTextField.text!, diaryContent: diaryView.contentTextView.text!, diaryDate: Date(), regdate: Date(), photoURL: imageURL)
+        
+        try! localRealm.write {
+            localRealm.add(task)  // Create
+            dismiss(animated: true)
+        }
+    }
+    
+    
+    @objc func dismissButtonTapped() {
+        dismiss(animated: true)
     }
     
     
