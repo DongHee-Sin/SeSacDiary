@@ -54,7 +54,7 @@ class HomeViewController: BaseViewController {
     override func configure() {
         homeView.tableView.delegate = self
         homeView.tableView.dataSource = self
-        homeView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        homeView.tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     
@@ -100,10 +100,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = tasks[indexPath.row].diaryTitle
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HomeTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.updateCell(data: tasks[indexPath.row])
+        
         return cell
     }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
     
     
     // TableView Swipe

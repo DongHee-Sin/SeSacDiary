@@ -44,7 +44,7 @@ class SearchImageViewController: BaseViewController {
     override func configure() {
         searchImageView.imageCollectionView.delegate = self
         searchImageView.imageCollectionView.dataSource = self
-        searchImageView.imageCollectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
+        searchImageView.imageCollectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
         
         searchImageView.imageCollectionView.keyboardDismissMode = .onDrag
     }
