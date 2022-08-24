@@ -11,6 +11,8 @@ import UIKit
 
 protocol RegisterImageDelegate {
     func registerImage(urlString: String)
+    
+    func registerImage(image: UIImage)
 }
 
 
@@ -21,6 +23,9 @@ class SearchImageViewController: BaseViewController {
     var imageURLList: [String] = []
     
     var selectedIndexPath: IndexPath?
+    
+    var selectedImage: UIImage?
+
     
     var delegate: RegisterImageDelegate?
     
@@ -51,10 +56,13 @@ class SearchImageViewController: BaseViewController {
     
     
     override func setNavigationBar() {
+        navigationController?.navigationBar.tintColor = .darkGray
+        
         let selectButton = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(selectImageButtonTapped))
         navigationItem.rightBarButtonItem = selectButton
         
-        navigationController?.navigationBar.tintColor = .darkGray
+        let closeButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(closeButtonTapped))
+        navigationItem.leftBarButtonItem = closeButton
         
         setSearchController()
     }
@@ -70,12 +78,27 @@ class SearchImageViewController: BaseViewController {
     
     
     @objc func selectImageButtonTapped() {
-        if let selectedIndexPath = selectedIndexPath {
-            delegate?.registerImage(urlString: imageURLList[selectedIndexPath.item])
-            navigationController?.popViewController(animated: true)
+        
+        // 1. URL String
+//        if let selectedIndexPath = selectedIndexPath {
+//            delegate?.registerImage(urlString: imageURLList[selectedIndexPath.item])
+//            dismiss(animated: true)
+//        }else {
+//            showAlertMessage(title: "선택된 이미지가 없습니다.", button: "확인")
+//        }
+        
+        // 2. UIimage
+        if let selectedImage = selectedImage {
+            delegate?.registerImage(image: selectedImage)
+            dismiss(animated: true)
         }else {
             showAlertMessage(title: "선택된 이미지가 없습니다.", button: "확인")
         }
+    }
+    
+    
+    @objc func closeButtonTapped() {
+        dismiss(animated: true)
     }
 }
 
@@ -100,16 +123,36 @@ extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let previouslySelected = selectedIndexPath
-        selectedIndexPath = indexPath
         
-        if let previouslySelected = previouslySelected {
-            searchImageView.imageCollectionView.reloadItems(at: [indexPath, previouslySelected])
-        }else {
-            searchImageView.imageCollectionView.reloadItems(at: [indexPath])
-        }
+        // 1. URL String
+//        let previouslySelected = selectedIndexPath
+//        selectedIndexPath = indexPath
+//
+//        if let previouslySelected = previouslySelected {
+//            searchImageView.imageCollectionView.reloadItems(at: [indexPath, previouslySelected])
+//        }else {
+//            searchImageView.imageCollectionView.reloadItems(at: [indexPath])
+//        }
+        
+        // 2. UIimage
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ImageCollectionViewCell else { return }
+        
+        selectedImage = cell.searchResultImageView.image
+        
+        selectedIndexPath = indexPath
+        collectionView.reloadData()
     }
+    
+    
+    // didDeselectItemAt 선택 해제 ⭐️
+    // 다시 누르면 Border 없어지도록 해결해보기
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        selectedIndexPath = nil
+//        selectedImage = nil
+//        collectionView.reloadData()
+//    }
 }
 
 

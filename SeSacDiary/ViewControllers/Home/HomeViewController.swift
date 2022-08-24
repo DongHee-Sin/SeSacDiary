@@ -82,11 +82,8 @@ class HomeViewController: BaseViewController {
     
     @objc func plusButtonTapped() {
         let vc = DiaryViewController()
-        let navi = UINavigationController(rootViewController: vc)
-        navi.modalPresentationStyle = .fullScreen
-        present(navi, animated: true)
+        transition(vc, transitionStyle: .presentFullNavigation)
     }
-    
 }
 
 
@@ -104,6 +101,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.diaryImageView.image = loadImageFromDocument(fileName: "\(tasks[indexPath.row].objectId).jpg")
         cell.updateCell(data: tasks[indexPath.row])
         
         return cell
@@ -125,6 +123,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     // 편집 스타일 (editingStyle)
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
+            // ⭐️ Document의 이미지를 먼저 삭제해줘야 한다!!!!!!
+            removeImageFromDocument(fileName: "\(tasks[indexPath.row].objectId).jpg")
+            
             let taskToDelete = tasks[indexPath.row]
             try! localRealm.write {
                 localRealm.delete(taskToDelete)

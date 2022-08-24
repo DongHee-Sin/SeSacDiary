@@ -56,17 +56,41 @@ class DiaryViewController: BaseViewController {
     
     
     @objc func saveButtonTapped() {
-        // Record를 추가하는 과정
+        // 1. imageURL 사용
+//        guard diaryView.titleTextField.text != "" else {
+//            showAlertMessage(title: "제목은 필수 입력입니다.", button: "확인")
+//            return
+//        }
+//        let task = UserDiary(diaryTitle: diaryView.titleTextField.text!, diaryContent: diaryView.contentTextView.text!, diaryDate: Date(), regdate: Date(), photoURL: imageURL)
+//
+//        try! localRealm.write {
+//            localRealm.add(task)  // Create
+//            dismiss(animated: true)
+//        }
+        
+        
+        // 2. Realm + 이미지는 도큐먼트에 저장
         guard diaryView.titleTextField.text != "" else {
             showAlertMessage(title: "제목은 필수 입력입니다.", button: "확인")
             return
         }
-        let task = UserDiary(diaryTitle: diaryView.titleTextField.text!, diaryContent: diaryView.contentTextView.text!, diaryDate: Date(), regdate: Date(), photoURL: imageURL)
         
-        try! localRealm.write {
-            localRealm.add(task)  // Create
-            dismiss(animated: true)
+        let task = UserDiary(diaryTitle: diaryView.titleTextField.text!, diaryContent: diaryView.contentTextView.text!, diaryDate: Date(), regdate: Date(), photoURL: nil)
+        
+        do {
+            try localRealm.write{
+                localRealm.add(task)
+            }
+        }catch let error {
+            print(error)
         }
+        
+        
+        if let image = diaryView.selectedImageView.image {
+            saveImageToDocument(fileName: "\(task.objectId).jpg", image: image)
+        }
+        
+        dismiss(animated: true)
     }
     
     
@@ -78,7 +102,7 @@ class DiaryViewController: BaseViewController {
     @objc func selectImageButtonTapped() {
         let vc = SearchImageViewController()
         vc.delegate = self
-        navigationController?.pushViewController(vc, animated: true)
+        transition(vc, transitionStyle: .presentNavigation)
     }
     
     
@@ -93,10 +117,15 @@ class DiaryViewController: BaseViewController {
 
 
 
+
 extension DiaryViewController: RegisterImageDelegate {
     func registerImage(urlString: String) {
         imageURL = urlString
         let url = URL(string: urlString)
         diaryView.selectedImageView.kf.setImage(with: url)
+    }
+    
+    func registerImage(image: UIImage) {
+        diaryView.selectedImageView.image = image
     }
 }

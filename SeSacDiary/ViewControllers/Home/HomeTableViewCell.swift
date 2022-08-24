@@ -90,10 +90,10 @@ class HomeTableViewCell: UITableViewCell {
         titleLabel.text = data.diaryTitle
         dateLabel.text = data.diaryDate.formatted()
         
-        if let imageURL = data.photoURL {
-            let url = URL(string: imageURL)
-            diaryImageView.kf.setImage(with: url)
-        }
+//        if let imageURL = data.photoURL {
+//            let url = URL(string: imageURL)
+//            diaryImageView.kf.setImage(with: url)
+//        }
     }
     
     
