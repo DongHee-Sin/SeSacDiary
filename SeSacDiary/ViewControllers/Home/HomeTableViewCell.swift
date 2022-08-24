@@ -95,4 +95,9 @@ class HomeTableViewCell: UITableViewCell {
             diaryImageView.kf.setImage(with: url)
         }
     }
+    
+    
+    override func prepareForReuse() {
+        diaryImageView.image = nil
+    }
 }
