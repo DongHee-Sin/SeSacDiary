@@ -14,6 +14,8 @@
 		D0129F2D28B21C6D004204F1 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2C28B21C6D004204F1 /* ImageCollectionViewCell.swift */; };
 		D0129F2F28B22953004204F1 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F2E28B22953004204F1 /* EndPoint.swift */; };
 		D0129F3228B22A17004204F1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F3128B22A17004204F1 /* APIManager.swift */; };
+		D0132FFA28B6579900E40656 /* BackUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0132FF928B6579900E40656 /* BackUpViewController.swift */; };
+		D0132FFC28B657A400E40656 /* BackUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0132FFB28B657A400E40656 /* BackUpView.swift */; };
 		D014A28428B31645002DCC25 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D014A28328B31645002DCC25 /* Realm */; };
 		D014A28628B31645002DCC25 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D014A28528B31645002DCC25 /* RealmSwift */; };
 		D014A28928B319E2002DCC25 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014A28828B319E2002DCC25 /* RealmModel.swift */; };
@@ -48,6 +50,8 @@
 		D0129F2C28B21C6D004204F1 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0129F2E28B22953004204F1 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		D0129F3128B22A17004204F1 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		D0132FF928B6579900E40656 /* BackUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpViewController.swift; sourceTree = "<group>"; };
+		D0132FFB28B657A400E40656 /* BackUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpView.swift; sourceTree = "<group>"; };
 		D014A28828B319E2002DCC25 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		D014A28B28B32A9C002DCC25 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D04119DC28B5A5B400CB699A /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
@@ -132,6 +136,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		D0132FF828B6573900E40656 /* Backup */ = {
+			isa = PBXGroup;
+			children = (
+				D0132FF928B6579900E40656 /* BackUpViewController.swift */,
+				D0132FFB28B657A400E40656 /* BackUpView.swift */,
+			);
+			path = Backup;
+			sourceTree = "<group>";
+		};
 		D014A28728B319CB002DCC25 /* Realm-DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +210,7 @@
 		D07B5FB128B12BEC00385F6A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0132FF828B6573900E40656 /* Backup */,
 				D014A28A28B32A8C002DCC25 /* Home */,
 				D07B5FCD28B1389D00385F6A /* Diary */,
 				D0129F2228B20014004204F1 /* SearchImage */,
@@ -320,6 +334,7 @@
 				D07B5F9D28B1296000385F6A /* AppDelegate.swift in Sources */,
 				D0F7105B28B4DB3F00378D15 /* HomeView.swift in Sources */,
 				D04119DD28B5A5B400CB699A /* Transition+Extension.swift in Sources */,
+				D0132FFA28B6579900E40656 /* BackUpViewController.swift in Sources */,
 				D0F7105D28B4EEEA00378D15 /* HomeTableViewCell.swift in Sources */,
 				D07B5FB728B1302B00385F6A /* BaseViewController.swift in Sources */,
 				D0129F3228B22A17004204F1 /* APIManager.swift in Sources */,
@@ -329,6 +344,7 @@
 				D07B5FB928B131BD00385F6A /* BaseView.swift in Sources */,
 				D014A28C28B32A9C002DCC25 /* HomeViewController.swift in Sources */,
 				D0129F2628B20046004204F1 /* SearchImageView.swift in Sources */,
+				D0132FFC28B657A400E40656 /* BackUpView.swift in Sources */,
 				D07B5FB328B12F5D00385F6A /* DiaryViewController.swift in Sources */,
 				D014A28928B319E2002DCC25 /* RealmModel.swift in Sources */,
 				D07B5F9F28B1296000385F6A /* SceneDelegate.swift in Sources */,

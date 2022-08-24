@@ -12,7 +12,7 @@ class HomeView: BaseView {
     // MARK: - Propertys
     let tableView: UITableView = {
        let view = UITableView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         return view
     }()
     

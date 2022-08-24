@@ -16,9 +16,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let rootVC = HomeViewController()
-        let navi = UINavigationController(rootViewController: rootVC)
-        window?.rootViewController = navi
+        let tabBarController = UITabBarController()
+        
+        let homeVC = HomeViewController()
+        let homeNavi = UINavigationController(rootViewController: homeVC)
+        let backUpVC = BackUpViewController()
+        
+        tabBarController.viewControllers = [homeNavi, backUpVC]
+        
+        tabBarController.tabBar.items?[0].image = UIImage(systemName: "newspaper")
+        tabBarController.tabBar.items?[1].image = UIImage(systemName: "gear")
+        tabBarController.tabBar.tintColor = .darkGray
+        
+        window?.rootViewController = tabBarController
         
         window?.makeKeyAndVisible()
     }
