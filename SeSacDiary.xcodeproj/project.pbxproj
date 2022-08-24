@@ -16,6 +16,9 @@
 		D0129F3228B22A17004204F1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0129F3128B22A17004204F1 /* APIManager.swift */; };
 		D0132FFA28B6579900E40656 /* BackUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0132FF928B6579900E40656 /* BackUpViewController.swift */; };
 		D0132FFC28B657A400E40656 /* BackUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0132FFB28B657A400E40656 /* BackUpView.swift */; };
+		D0132FFE28B6681E00E40656 /* BackUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0132FFD28B6681E00E40656 /* BackUpTableViewCell.swift */; };
+		D013300028B66BAB00E40656 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0132FFF28B66BAB00E40656 /* BaseTableViewCell.swift */; };
+		D013300428B671AE00E40656 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D013300328B671AE00E40656 /* ReusableViewProtocol.swift */; };
 		D014A28428B31645002DCC25 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D014A28328B31645002DCC25 /* Realm */; };
 		D014A28628B31645002DCC25 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D014A28528B31645002DCC25 /* RealmSwift */; };
 		D014A28928B319E2002DCC25 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014A28828B319E2002DCC25 /* RealmModel.swift */; };
@@ -52,6 +55,9 @@
 		D0129F3128B22A17004204F1 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		D0132FF928B6579900E40656 /* BackUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpViewController.swift; sourceTree = "<group>"; };
 		D0132FFB28B657A400E40656 /* BackUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpView.swift; sourceTree = "<group>"; };
+		D0132FFD28B6681E00E40656 /* BackUpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUpTableViewCell.swift; sourceTree = "<group>"; };
+		D0132FFF28B66BAB00E40656 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		D013300328B671AE00E40656 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		D014A28828B319E2002DCC25 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		D014A28B28B32A9C002DCC25 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D04119DC28B5A5B400CB699A /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 			children = (
 				D07B5FB628B1302B00385F6A /* BaseViewController.swift */,
 				D07B5FB828B131BD00385F6A /* BaseView.swift */,
+				D0132FFF28B66BAB00E40656 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -141,8 +148,17 @@
 			children = (
 				D0132FF928B6579900E40656 /* BackUpViewController.swift */,
 				D0132FFB28B657A400E40656 /* BackUpView.swift */,
+				D0132FFD28B6681E00E40656 /* BackUpTableViewCell.swift */,
 			);
 			path = Backup;
+			sourceTree = "<group>";
+		};
+		D013300228B6719C00E40656 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D013300328B671AE00E40656 /* ReusableViewProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		D014A28728B319CB002DCC25 /* Realm-DataBase */ = {
@@ -186,6 +202,7 @@
 				D014A28728B319CB002DCC25 /* Realm-DataBase */,
 				D07B5FB028B1296C00385F6A /* App */,
 				D0129F2828B21860004204F1 /* Extension */,
+				D013300228B6719C00E40656 /* Protocol */,
 				D07B5FB528B1300200385F6A /* Utility */,
 				D07B5FB128B12BEC00385F6A /* ViewControllers */,
 				D0129F2B28B21C1A004204F1 /* Manager */,
@@ -342,12 +359,15 @@
 				D0129F2D28B21C6D004204F1 /* ImageCollectionViewCell.swift in Sources */,
 				D0129F2128B1FBC8004204F1 /* MainTextField.swift in Sources */,
 				D07B5FB928B131BD00385F6A /* BaseView.swift in Sources */,
+				D013300428B671AE00E40656 /* ReusableViewProtocol.swift in Sources */,
+				D013300028B66BAB00E40656 /* BaseTableViewCell.swift in Sources */,
 				D014A28C28B32A9C002DCC25 /* HomeViewController.swift in Sources */,
 				D0129F2628B20046004204F1 /* SearchImageView.swift in Sources */,
 				D0132FFC28B657A400E40656 /* BackUpView.swift in Sources */,
 				D07B5FB328B12F5D00385F6A /* DiaryViewController.swift in Sources */,
 				D014A28928B319E2002DCC25 /* RealmModel.swift in Sources */,
 				D07B5F9F28B1296000385F6A /* SceneDelegate.swift in Sources */,
+				D0132FFE28B6681E00E40656 /* BackUpTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

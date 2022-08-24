@@ -54,7 +54,7 @@ class HomeViewController: BaseViewController {
     override func configure() {
         homeView.tableView.delegate = self
         homeView.tableView.dataSource = self
-        homeView.tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "cell")
+        homeView.tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
     }
 
     
@@ -97,7 +97,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HomeTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell else {
             return UITableViewCell()
         }
         

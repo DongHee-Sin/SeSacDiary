@@ -10,11 +10,7 @@ import UIKit
 class HomeView: BaseView {
     
     // MARK: - Propertys
-    let tableView: UITableView = {
-       let view = UITableView()
-        view.backgroundColor = .white
-        return view
-    }()
+    let tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
     
     
     

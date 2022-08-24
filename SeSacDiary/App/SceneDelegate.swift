@@ -26,7 +26,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         tabBarController.tabBar.items?[0].image = UIImage(systemName: "newspaper")
         tabBarController.tabBar.items?[1].image = UIImage(systemName: "gear")
+        
         tabBarController.tabBar.tintColor = .darkGray
+        tabBarController.tabBar.backgroundColor = .white
         
         window?.rootViewController = tabBarController
         

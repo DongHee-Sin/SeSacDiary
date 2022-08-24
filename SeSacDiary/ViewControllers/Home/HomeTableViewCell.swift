@@ -10,7 +10,7 @@ import SnapKit
 import Kingfisher
 
 
-class HomeTableViewCell: UITableViewCell {
+class HomeTableViewCell: BaseTableViewCell {
 
     // MARK: - Propertys
     let labelStackView: UIStackView = {
@@ -40,26 +40,12 @@ class HomeTableViewCell: UITableViewCell {
         return view
     }()
     
-    
-    
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        configureUI()
-        setConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
 
     
     
     
     // MARK: - Methods
-    func configureUI() {
+    override func configureUI() {
         [labelStackView, diaryImageView].forEach {
             self.addSubview($0)
         }
@@ -70,7 +56,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     
-    func setConstraints() {
+    override func setConstraints() {
         diaryImageView.snp.makeConstraints { make in
             make.top.equalTo(self).offset(12)
             make.bottom.equalTo(self).offset(-12)
