@@ -55,6 +55,7 @@ class DiaryViewController: BaseViewController {
     }
     
     
+    // BarButton Action
     @objc func saveButtonTapped() {
         // 1. imageURL 사용
 //        guard diaryView.titleTextField.text != "" else {
@@ -71,7 +72,7 @@ class DiaryViewController: BaseViewController {
         
         // 2. Realm + 이미지는 도큐먼트에 저장
         guard diaryView.titleTextField.text != "" else {
-            showAlertMessage(title: "제목은 필수 입력입니다.", button: "확인")
+            showAlertMessage(title: "제목은 필수 입력입니다.")
             return
         }
         
@@ -106,6 +107,7 @@ class DiaryViewController: BaseViewController {
     }
     
     
+    // 빈공간 탭하면 키보드 dismiss
     private func setDismissKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)

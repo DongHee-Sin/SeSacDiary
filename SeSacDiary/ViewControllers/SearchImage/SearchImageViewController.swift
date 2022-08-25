@@ -92,7 +92,7 @@ class SearchImageViewController: BaseViewController {
             delegate?.registerImage(image: selectedImage)
             dismiss(animated: true)
         }else {
-            showAlertMessage(title: "선택된 이미지가 없습니다.", button: "확인")
+            showAlertMessage(title: "선택된 이미지가 없습니다.")
         }
     }
     

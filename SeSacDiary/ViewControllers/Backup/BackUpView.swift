@@ -28,10 +28,32 @@ class BackUpView: BaseView {
         return view
     }()
     
+    lazy var buttomStackView: UIStackView = {
+        let view = UIStackView()
+        view.spacing = 10
+        view.axis = .horizontal
+        view.distribution = .fillEqually
+        [backUpButton, restoreButton].forEach {
+            view.addArrangedSubview($0)
+        }
+        return view
+    }()
+    
     let backUpButton: UIButton = {
         let view = UIButton()
-        view.setTitle("백업 파일 만들기", for: .normal)
-        view.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        view.setTitle("백업하기", for: .normal)
+        view.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        view.titleLabel?.textColor = .white
+        view.backgroundColor = .darkGray
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    let restoreButton: UIButton = {
+        let view = UIButton()
+        view.setTitle("복구하기", for: .normal)
+        view.titleLabel?.font = .boldSystemFont(ofSize: 17)
         view.titleLabel?.textColor = .white
         view.backgroundColor = .darkGray
         view.layer.cornerRadius = 10
@@ -50,9 +72,10 @@ class BackUpView: BaseView {
     
     
     
+    
     // MARK: - Methods
     override func configureUI() {
-        [backUpTitle, backUpDescription, backUpButton, backUpListTableView, coverView].forEach {
+        [backUpTitle, backUpDescription, buttomStackView, backUpListTableView, coverView].forEach {
             self.addSubview($0)
         }
     }
@@ -71,7 +94,7 @@ class BackUpView: BaseView {
             make.trailing.equalTo(self).offset(-20)
         }
         
-        backUpButton.snp.makeConstraints { make in
+        buttomStackView.snp.makeConstraints { make in
             make.top.equalTo(backUpDescription.snp.bottom).offset(20)
             make.leading.equalTo(self).offset(20)
             make.trailing.equalTo(self).offset(-20)
