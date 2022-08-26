@@ -8,13 +8,13 @@
 import UIKit
 
 import Kingfisher
-import RealmSwift   // Realm 1.
+
 
 final class DiaryViewController: BaseViewController {
 
     var imageURL: String?
     
-    let localRealm = try! Realm()  // Realm 2. Realm 테이블에 데이터를 CRUD할 때, Realm 테이블 경로에 접근하기 위한 코드
+    let repository = UserDiaryRepository()
     
     let diaryView = DiaryView()
     
@@ -27,8 +27,6 @@ final class DiaryViewController: BaseViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
-        print("Realm is located at:", localRealm.configuration.fileURL!)
     }
     
     
@@ -77,19 +75,9 @@ final class DiaryViewController: BaseViewController {
         }
         
         let task = UserDiary(diaryTitle: diaryView.titleTextField.text!, diaryContent: diaryView.contentTextView.text!, diaryDate: Date(), regdate: Date(), photoURL: nil)
+        let image = diaryView.selectedImageView.image
         
-        do {
-            try localRealm.write{
-                localRealm.add(task)
-            }
-        }catch let error {
-            print(error)
-        }
-        
-        
-        if let image = diaryView.selectedImageView.image {
-            saveImageToDocument(fileName: "\(task.objectId).jpg", image: image)
-        }
+        repository.addItem(item: task, image: image)
         
         dismiss(animated: true)
     }

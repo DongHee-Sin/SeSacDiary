@@ -5,7 +5,7 @@
 //  Created by 신동희 on 2022/08/26.
 //
 
-import Foundation
+import UIKit
 import RealmSwift
 
 
@@ -17,12 +17,12 @@ protocol UserDiaryRepositoryType {
     func fetchDate(date: Date) -> Results<UserDiary>
     func updateFavorite(item: UserDiary)
     func delete(item: UserDiary)
-    func addItem(item: UserDiary)
+    func addItem(item: UserDiary, image: UIImage?)
 }
 
 
 // Repository를 구조체로 만들어도 크게 문제는 없다.
-class UserDiaryRepository: UserDiaryRepositoryType {
+struct UserDiaryRepository: UserDiaryRepositoryType {
     
     // Realm은 구조체! 하지만, 공식문서에서는 Realm을 라이브 객체라고 설명한다.
     // 라이브 객체는 DB에 저장된 최신 데이터를 느리게 참조한다. (사용자가 접근하는 상황에서 최신 정보로 참조한다는 의미인듯?..)
@@ -80,12 +80,46 @@ class UserDiaryRepository: UserDiaryRepositoryType {
     }
     
     
-    func addItem(item: UserDiary) {
-        //
+    func addItem(item: UserDiary, image: UIImage?) {
+        do {
+            try localRealm.write{
+                localRealm.add(item)
+            }
+        }catch let error {
+            print(error)
+        }
+        
+        if let image = image {
+            saveImageToDocument(fileName: "\(item.objectId).jpg", image: image)
+        }
     }
     
     
-    // 도큐먼트에 있는 이미지 제거하는 메서드
+    
+    
+    
+    // MARK: - Document
+    
+    // 이미지 저장
+    func saveImageToDocument(fileName: String, image: UIImage) {
+        // Document 경로 가져오는 코드
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        // 세부 파일 경로 (이미지를 저장할 경로)
+        let fileURL = documentDirectory.appendingPathComponent(fileName)
+        
+        // 이미지 압축
+        guard let data = image.jpegData(compressionQuality: 0.5) else { return }
+        
+        do {
+            try data.write(to: fileURL)
+        } catch let error {
+            print("file save error: \(error)")
+        }
+    }
+    
+    
+    // 이미지 제거
     func removeImageFromDocument(fileName: String) {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         let fileURL = documentDirectory.appendingPathComponent(fileName)

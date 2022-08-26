@@ -34,26 +34,7 @@ extension UIViewController {
             return UIImage(systemName: "star.fill")
         }
     }
-    
-    
-    
-    
-    func saveImageToDocument(fileName: String, image: UIImage) {
-        // Document 경로 가져오는 코드
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        
-        // 세부 파일 경로 (이미지를 저장할 경로)
-        let fileURL = documentDirectory.appendingPathComponent(fileName)
-        
-        // 이미지 압축
-        guard let data = image.jpegData(compressionQuality: 0.5) else { return }
-        
-        do {
-            try data.write(to: fileURL)
-        } catch let error {
-            print("file save error: \(error)")
-        }
-    }
+
     
     
     
