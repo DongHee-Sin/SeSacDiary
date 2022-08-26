@@ -19,6 +19,8 @@ final class HomeViewController: BaseViewController {
     
     var tasks: Results<UserDiary>!
     
+    var notificationToken: NotificationToken?
+    
     let formatter: DateFormatter = {
         let foramtter = DateFormatter()
         foramtter.dateFormat = "yyMMdd"
@@ -37,6 +39,14 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Realm 데이터베이스에 대한 Observe 등록
+        // 데이터베이스의 값이 변경될 때 TableView reload를 실행하도록 구현
+        let realm = try! Realm()
+        let results = realm.objects(UserDiary.self)
+        notificationToken = results.observe { [weak self] _ in
+            self?.homeView.tableView.reloadData()
+        }
     }
     
     
@@ -132,11 +142,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            // 오류 해결하기.. 뭐지..?ㅠ
+            // ⚠️ 오류 원인 : Realm Database의 값이 제거된 후, tasks(Results<UserDiary>) 프로퍼티에 설정했던 didSet 메서드가 호출되지 않음
+            // didSet에 정의한 TableView reload가 호출되지 않으면서, 데이터베이스에서는 값이 지워졌음에도 불구하고 UI에는 데이터가 그대로 보여짐
+            // 이 상황에서 스크롤링을 하거나 다시 Cell을 제거하는 동작을 취하면, 존재하지 않는 데이터에 접근하므로 Index 오류가 발생한 것.
+            // 💡 오류 해결 : 테이블 프로퍼티(tasks)에 설정했던 didSet을 제거하고, Realm객체에 Observe 등록
+            // https://www.mongodb.com/docs/realm/sdk/swift/react-to-changes/#std-label-ios-react-to-changes
             repository.delete(item: tasks[indexPath.row])
             
+            
             // 1.
-            // ⭐️ Document의 이미지를 먼저 삭제해줘야 한다!!!!!!
+            // Document의 이미지를 먼저 삭제해줘야 한다!
 //            removeImageFromDocument(fileName: "\(item.objectId).jpg")
 //
 //            try! localRealm.write {

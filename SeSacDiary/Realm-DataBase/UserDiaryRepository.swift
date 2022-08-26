@@ -29,7 +29,6 @@ class UserDiaryRepository: UserDiaryRepositoryType {
     // 메모리 주소가 다른 여러개의 인스턴스가 있더라도 내부적인 구현으로 결국 같은 곳을 본다는..?
     let localRealm = try! Realm()
     
-    
     func fetch() -> Results<UserDiary> {
         return localRealm.objects(UserDiary.self).sorted(byKeyPath: "diaryTitle", ascending: true)
     }
