@@ -21,6 +21,11 @@ final class DiaryView: BaseView {
         return view
     }()
     
+    let datePickerView: UIPickerView = {
+        let view = UIPickerView()
+        return view
+    }()
+    
     let titleTextField: MainTextField = {
         let view = MainTextField()
         view.placeholder = "Title"
@@ -61,6 +66,8 @@ final class DiaryView: BaseView {
         [selectedImageView, titleTextField, dateTextField, contentTextView, searchImageButton].forEach {
             self.addSubview($0)
         }
+        
+        dateTextField.inputView = datePickerView
     }
     
     

@@ -13,6 +13,9 @@ import Kingfisher
 final class HomeTableViewCell: BaseTableViewCell {
 
     // MARK: - Propertys
+    
+    let dateFormatterManager = DateFormatterManager.shared
+    
     let labelStackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -74,7 +77,7 @@ final class HomeTableViewCell: BaseTableViewCell {
     
     func updateCell(data: UserDiary) {
         titleLabel.text = data.diaryTitle
-        dateLabel.text = data.diaryDate.formatted()
+        dateLabel.text = dateFormatterManager.dateToString(date: data.diaryDate)
         
 //        if let imageURL = data.photoURL {
 //            let url = URL(string: imageURL)

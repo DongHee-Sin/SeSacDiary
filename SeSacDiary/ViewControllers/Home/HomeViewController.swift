@@ -21,11 +21,7 @@ final class HomeViewController: BaseViewController {
     
     var notificationToken: NotificationToken?
     
-    let formatter: DateFormatter = {
-        let foramtter = DateFormatter()
-        foramtter.dateFormat = "yyMMdd"
-        return foramtter
-    }()
+    let dateFormatterManager = DateFormatterManager.shared
     
     
     
@@ -228,7 +224,7 @@ extension HomeViewController: FSCalendarDelegate, FSCalendarDataSource {
 
     // date: yyyyMMdd hh:mm:ss => dateFormatter 활용
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
-        return formatter.string(from: date) == "220907" ? "오프라인 행사" : nil
+        return dateFormatterManager.dateToString(date: date) == "22년 09월 07일" ? "오프라인 행사" : nil
     }
 
 

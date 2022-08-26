@@ -23,6 +23,7 @@
 		D014A28628B31645002DCC25 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D014A28528B31645002DCC25 /* RealmSwift */; };
 		D014A28928B319E2002DCC25 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014A28828B319E2002DCC25 /* RealmModel.swift */; };
 		D014A28C28B32A9C002DCC25 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014A28B28B32A9C002DCC25 /* HomeViewController.swift */; };
+		D025511F28B8E14C00012B56 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025511E28B8E14C00012B56 /* DateFormatterManager.swift */; };
 		D04119DD28B5A5B400CB699A /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04119DC28B5A5B400CB699A /* Transition+Extension.swift */; };
 		D04119DF28B5D26500CB699A /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04119DE28B5D26500CB699A /* FileManager+Extension.swift */; };
 		D0579A9E28B8558C0067A4C4 /* UserDiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0579A9D28B8558C0067A4C4 /* UserDiaryRepository.swift */; };
@@ -63,6 +64,7 @@
 		D013300328B671AE00E40656 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		D014A28828B319E2002DCC25 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		D014A28B28B32A9C002DCC25 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D025511E28B8E14C00012B56 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		D04119DC28B5A5B400CB699A /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 		D04119DE28B5D26500CB699A /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		D0579A9D28B8558C0067A4C4 /* UserDiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiaryRepository.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				D0129F3128B22A17004204F1 /* APIManager.swift */,
+				D025511E28B8E14C00012B56 /* DateFormatterManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				D0579A9E28B8558C0067A4C4 /* UserDiaryRepository.swift in Sources */,
 				D013300428B671AE00E40656 /* ReusableViewProtocol.swift in Sources */,
 				D013300028B66BAB00E40656 /* BaseTableViewCell.swift in Sources */,
+				D025511F28B8E14C00012B56 /* DateFormatterManager.swift in Sources */,
 				D014A28C28B32A9C002DCC25 /* HomeViewController.swift in Sources */,
 				D0129F2628B20046004204F1 /* SearchImageView.swift in Sources */,
 				D0132FFC28B657A400E40656 /* BackUpView.swift in Sources */,

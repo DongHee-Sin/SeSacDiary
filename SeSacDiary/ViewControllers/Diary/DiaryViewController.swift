@@ -12,16 +12,34 @@ import Kingfisher
 
 final class DiaryViewController: BaseViewController {
 
+    // MARK: - Propertys
     var imageURL: String?
     
     let repository = UserDiaryRepository()
     
+    let dateFormatterManager = DateFormatterManager.shared
+    
+    let dateArray: [Date] = {
+        var arr: [Date] = []
+        
+        [Int](0...10).forEach {
+            let time = TimeInterval($0 * 86400)
+            let date = Date(timeIntervalSinceNow: -time)
+            arr.append(date)
+        }
+        
+        return arr
+    }()
+    
+    
+    
+    
+    // MARK: - Life Cycle
     let diaryView = DiaryView()
     
     override func loadView() {
         self.view = diaryView
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +52,10 @@ final class DiaryViewController: BaseViewController {
     
     // MARK: - Methdos
     override func configure() {
+        diaryView.dateTextField.delegate = self
+        diaryView.datePickerView.delegate = self
+        diaryView.datePickerView.dataSource = self
+        
         diaryView.searchImageButton.addTarget(self, action: #selector(selectImageButtonTapped), for: .touchUpInside)
         
         setDismissKeyboard()
@@ -74,7 +96,8 @@ final class DiaryViewController: BaseViewController {
             return
         }
         
-        let task = UserDiary(diaryTitle: diaryView.titleTextField.text!, diaryContent: diaryView.contentTextView.text!, diaryDate: Date(), regdate: Date(), photoURL: nil)
+        let diaryDate = dateFormatterManager.stringToDate(string: diaryView.dateTextField.text!) ?? Date()
+        let task = UserDiary(diaryTitle: diaryView.titleTextField.text!, diaryContent: diaryView.contentTextView.text!, diaryDate: diaryDate, regdate: Date(), photoURL: nil)
         let image = diaryView.selectedImageView.image
         
         repository.addItem(item: task, image: image)
@@ -117,5 +140,40 @@ extension DiaryViewController: RegisterImageDelegate {
     
     func registerImage(image: UIImage) {
         diaryView.selectedImageView.image = image
+    }
+}
+
+
+
+
+// MARK: - TextField Protocol
+extension DiaryViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
+    }
+}
+
+
+
+// MARK: - PickerView Protocol
+extension DiaryViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return dateArray.count
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        diaryView.dateTextField.text = dateFormatterManager.dateToString(date: dateArray[row])
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return dateFormatterManager.dateToString(date: dateArray[row])
     }
 }
