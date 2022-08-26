@@ -10,7 +10,7 @@ import SnapKit
 import Kingfisher
 
 
-class HomeTableViewCell: BaseTableViewCell {
+final class HomeTableViewCell: BaseTableViewCell {
 
     // MARK: - Propertys
     let labelStackView: UIStackView = {

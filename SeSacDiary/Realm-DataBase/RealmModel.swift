@@ -9,6 +9,9 @@ import Foundation
 import RealmSwift
 
 
+// <테이블에 대한 스키마 정의>
+
+
 // UserDiary : 테이블 이름
 // Persisted : 컬럼
 class UserDiary: Object {

@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 import RealmSwift   // Realm 1.
 
-class DiaryViewController: BaseViewController {
+final class DiaryViewController: BaseViewController {
 
     var imageURL: String?
     

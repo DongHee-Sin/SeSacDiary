@@ -37,19 +37,6 @@ extension UIViewController {
     
     
     
-    // 도큐먼트에 있는 이미지 제거하는 메서드
-    func removeImageFromDocument(fileName: String) {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        let fileURL = documentDirectory.appendingPathComponent(fileName)
-        
-        do {
-            try FileManager.default.removeItem(at: fileURL)
-        }catch let error {
-            print(error)
-        }
-    }
-    
-    
     
     func saveImageToDocument(fileName: String, image: UIImage) {
         // Document 경로 가져오는 코드

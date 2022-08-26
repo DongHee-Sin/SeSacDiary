@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import TextFieldEffects
 
-class DiaryView: BaseView {
+final class DiaryView: BaseView {
     
     // MARK: - Propertys
     let selectedImageView: UIImageView = {
