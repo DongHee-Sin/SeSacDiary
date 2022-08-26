@@ -24,10 +24,13 @@ protocol UserDiaryRepositoryType {
 // Repository를 구조체로 만들어도 크게 문제는 없다.
 class UserDiaryRepository: UserDiaryRepositoryType {
     
-    // Realm은 구조체!
-    // 근데, Realm 구조체의 인스턴스를 여러곳에서 만들더라도, 결과적으로 같은곳을 본다..
-    // 메모리 주소가 다른 여러개의 인스턴스가 있더라도 내부적인 구현으로 결국 같은 곳을 본다는..?
+    // Realm은 구조체! 하지만, 공식문서에서는 Realm을 라이브 객체라고 설명한다.
+    // 라이브 객체는 DB에 저장된 최신 데이터를 느리게 참조한다. (사용자가 접근하는 상황에서 최신 정보로 참조한다는 의미인듯?..)
+    // Realm의 인스턴스는 여러 공간에서 많이 생성될 수 있지만, 앱이 실제로 사용하는 데이터에 대한 성능 비용만 지불하면 된다
+    // => 인스턴스가 많이 생성되었어도 결국 모든 인스턴스가 동일한 Database에 대한 참조를 갖고 동작한다는 의미인듯
+    // https://www.mongodb.com/docs/realm/sdk/swift/realm-database/
     let localRealm = try! Realm()
+    
     
     func fetch() -> Results<UserDiary> {
         return localRealm.objects(UserDiary.self).sorted(byKeyPath: "diaryTitle", ascending: true)
